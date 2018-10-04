@@ -14,6 +14,9 @@ import { routes } from './app.routes';
 import { SigninService } from './Services/signin.service';
 import { StreamService } from './Services/stream.service';
 import { MyObservableComponent } from './my-observable/my-observable.component';
+import { CallapiService } from './Services/callapi.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CallapihttpComponent } from './callapihttp/callapihttp.component';
 
 
 @NgModule({
@@ -22,14 +25,16 @@ import { MyObservableComponent } from './my-observable/my-observable.component';
     LoginComponent,
     HomeComponent,
     PageNotFoundComponent,
-    MyObservableComponent
+    MyObservableComponent,
+    CallapihttpComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
-  providers: [LoginService, SharedService, SigninService, StreamService],
+  providers: [LoginService, SharedService, SigninService, StreamService, CallapiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
